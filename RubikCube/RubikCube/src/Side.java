@@ -1,4 +1,6 @@
+package RubikCube1;
 import java.util.HashMap;
+
 
 public class Side implements Constants{
 	
@@ -42,6 +44,34 @@ public class Side implements Constants{
 			}
 		}
 		tokens = list;
+	}
+	
+	public void setColumn(int column_number, Token[] ncolumn){
+		for (int i = 0; i < 3; i++) {
+			this.tokens[column_number][i] = ncolumn[i] ;
+		}	
+	}
+		
+	public Token[] getColumn(int number){
+		Token[] aux = new Token[3];
+		for (int i = 0; i < 3; i++) {
+			aux[i] = this.tokens[number][i];
+		}
+		return aux;
+	}
+		
+	public void setRow(int row_number, Token[] nrow){
+		for (int i = 0; i < 3; i++) {
+			this.tokens[i][row_number] = nrow[i];
+		}
+	}
+	
+	public Token[] getRow(int number){
+		Token[] aux = new Token[3];
+		for (int i = 0; i < 3; i++) {
+			aux[i] = this.tokens[i][number];
+		}	
+		return aux;		
 	}
 	
 	@Override 
