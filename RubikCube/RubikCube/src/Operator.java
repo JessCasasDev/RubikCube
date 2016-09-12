@@ -1,15 +1,22 @@
+package RubikCube1;
 
 public class Operator {
+	static Cube cube =  new Cube();
 	
 	public static void main(String[] args) {
-		Cube cube =  new Cube();
+		
 		for (int i = 0; i < cube.sides.length; i++) {
 			System.out.println(cube.sides[i]);
 			
 		}
-		System.out.println();
-		rotate(cube.sides[0], "column", "clockwise", 0);
+		System.out.println("//////////////////");
+		rotate(2,true, 1);
 		System.out.println();		
+	
+		for (int i = 0; i < cube.sides.length; i++) {
+			System.out.println(cube.sides[i]);
+			
+		}
 	}
 	
 
@@ -21,27 +28,23 @@ public class Operator {
 		
 	}
 	
-	public static void rotate(Side side, String movement, String orientation, int triplet){
-		if(movement.equals("column")){
-			if(orientation.equals("clockwise")){
-				Token[] aux = new Token[3];
-				for (int i = 0; i < side.tokens.length; i++) {
-					aux[i] = side.tokens[i][triplet];
-					
-				}
-				for (int i = 0; i < aux.length; i++) {
-					System.out.println(aux[i]);
-				}
-				
-			}
-			else if(orientation.equals("anticlockwise")){
-				
-			}
+	public static void rotate( int times, boolean clock, int movement){
+		
+		if(clock){
+			switch(movement){
+				case 1: 
+					Token[] aux = cube.sides[0].getRow(2);
+					cube.sides[0].setRow(2, cube.sides[4].getRow(2));
+					cube.sides[4].setRow(2, cube.sides[5].getRow(2));
+					cube.sides[5].setRow(2, cube.sides[3].getRow(2));
+					cube.sides[3].setRow(2,aux);
+				//	trasp(1); //por definir
+			}		
 		}
-		else if(movement.equals("row")){
 			
+					
 		}
-	}
+				
 	
 	public boolean validate(){
 		return true;
