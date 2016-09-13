@@ -1,4 +1,4 @@
-package RubikCube1;
+
 import java.util.HashMap;
 
 
@@ -73,6 +73,17 @@ public class Side implements Constants{
 		}	
 		return aux;		
 	}
+	public void rotate(){
+		Token[][] aux = tokens.clone();
+		tokens[0][0] = aux[0][2];
+		tokens[0][1] = aux[1][2];
+		tokens[0][2] = aux[2][2];
+		tokens[1][0] = aux[0][1];
+		tokens[1][2] = aux[2][1];
+		tokens[2][0] = aux[0][0];
+		tokens[2][1] = aux[1][0];
+		tokens[2][2] = aux[2][0];
+	}
 	
 	@Override 
 	public String toString(){
@@ -108,5 +119,6 @@ public class Side implements Constants{
 		//System.out.println(tok);
 		return tok;
 	}
+
 	
 }
