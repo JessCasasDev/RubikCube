@@ -1,29 +1,39 @@
+/**
+ * Cube.java
+ * Class for Rubik Cube
+ * @author eccarrilloe
+ */
 
 public class Cube implements Constants {
-	Side[] sides = new Side[6];
-	
-	public Cube(){
-		
-		//frontal posterior, derecha, izquierda, inferior, superior.
-		Side front_white = new Side(front, white);
-		Side right_green = new Side(right, green);
-		Side left_blue = new Side(left, blue);
-		Side top_red = new Side(top, red);
-		Side bottom_orange = new Side(bottom, orange);
-		Side back_yellow = new Side(back, yellow);
-		
-		sides[0] = front_white;
-		sides[1] = right_green;
-		sides[2] = left_blue;
-		sides[3] = top_red;
-		sides[4] = bottom_orange;
-		sides[5] = back_yellow;
-	}
-	
-	
-	@Override
-	public String toString(){
-		
-		return "";
-	}
+
+  public Side frontSide;
+  public Side rightSide;
+  public Side leftSide;
+  public Side topSide;
+  public Side bottomSide;
+  public Side backSide;
+
+  public Cube() {
+    this.frontSide  = new Side(FRONT, WHITE);
+    this.rightSide  = new Side(RIGHT, GREEN);
+    this.leftSide   = new Side(LEFT, BLUE);
+    this.topSide    = new Side(TOP, RED);
+    this.bottomSide = new Side(BOTTOM, ORANGE);
+    this.backSide   = new Side(BACK, YELLOW);
+  }
+
+  public Cube(Side frontSide, Side rightSide, Side leftSide, Side topSide, Side bottomSide, Side backSide) {
+    this.frontSide  = frontSide;
+    this.rightSide  = rightSide;
+    this.leftSide   = leftSide;
+    this.topSide    = topSide;
+    this.bottomSide = bottomSide;
+    this.backSide   = backSide;
+  }
+
+  @Override
+  public String toString() {
+    return "";
+  }
+
 }
